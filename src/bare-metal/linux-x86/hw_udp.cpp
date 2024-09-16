@@ -26,6 +26,7 @@
 // #include <stdio.h>
 #include <stdlib.h>
 //#include <string.h>
+#include <net/if.h>
 
 #include "rodos.h"
 #include "hw_udp.h"
@@ -246,6 +247,12 @@ void UDPTransmitter::openConnection(int32_t port, const char* host) {
         const int on               = 1;
         setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &on, sizeof(on));
     }
+
+    //Bind the socket specifically to the wifi interface
+    struct ifreq ifr;
+    strncpy(ifr.ifr_name, "wlan0", IFNAMSIZ-1);
+    setsockopt(sock, SOL_SOCKET, SO_BINDTODEVICE, &ifr, sizeof(ifr));
+
     initialised = true;
 }
 

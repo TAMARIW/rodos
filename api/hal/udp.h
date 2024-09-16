@@ -21,11 +21,11 @@
 //   255.255.255.255 The whole local network
 //   127.0.0.1       only my local host
 
-//constexpr char IP_BROADCAST_ADR[] = "192.168.1.255";
+constexpr char IP_BROADCAST_ADR[] = "192.168.10.255";
 //constexpr char IP_BROADCAST_ADR[] = "255.255.255.255";
 
 #ifndef __APPLE__
-constexpr char IP_BROADCAST_ADR[] = "127.255.255.255";
+//constexpr char IP_BROADCAST_ADR[] = "127.255.255.255";
 #else
 constexpr char IP_BROADCAST_ADR[] = "224.0.0.1";
 #endif
