@@ -252,7 +252,7 @@ void Gateway::run() {
     linkinterface->init();
 
     while(1) {
-        linkinterface->suspendUntilDataReady(NOW()+ 1 * SECONDS);
+        linkinterface->suspendUntilDataReady(NOW()+ 1 * MILLISECONDS);
 
         didSomething=true;
         while(didSomething) {
